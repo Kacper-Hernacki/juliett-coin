@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
+  button: {
+    fontWeight: 'bold',
+    color: '#3f51b5',
+  },
 }))
 
 export default function ButtonAppBar() {
@@ -19,12 +23,14 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             JuliettCoin Blockchain
           </Typography>
-          <Button color="inherit">Settings</Button>
+          <Button className={classes.button} variant="contained">
+            Settings
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

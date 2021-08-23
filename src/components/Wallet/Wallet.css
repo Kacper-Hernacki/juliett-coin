@@ -1,0 +1,43 @@
+.wallet {
+  border: 1px solid #3f51b52a;
+  width: 500px;
+  padding: 20px;
+  height: 300px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(248, 248, 248);
+}
+
+.wallet__address {
+  text-align: center;
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.wallet__addressContainer {
+  display: flex;
+  align-items: center;
+}
+
+.wallet__balance {
+  margin-top: 20px;
+}
+
+.wallet__balanceContainer {
+  margin-top: 10px;
+}
+
+.wallet__transactions {
+  margin-top: 20px;
+}
+
+.wallet__button {
+  margin-top: 30px !important;
+  width: 80% !important;
+  margin-left: 10% !important;
+  margin-right: 10% !important;
+}
