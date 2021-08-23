@@ -1,8 +1,10 @@
 import { Button } from '@material-ui/core'
 import React from 'react'
+import DialogWindow from '../DialogWindow/DialogWindow'
 import './Block.css'
 
 function Block({ block }) {
+  console.log(block.transactions[1].toAddress)
   return (
     <div className="block">
       <p>
@@ -17,9 +19,10 @@ function Block({ block }) {
         <span>Previous Hash:</span>
         {block.previousHash}
       </p>
-      <Button variant="contained" color="primary" className="block__button">
-        Transactions
-      </Button>
+      {/* {block.transactions.map((transaction, id) => {
+        return <h3 key={id}>{transaction.toAddress}</h3>
+      })} */}
+      <DialogWindow transactions={block.transactions} />
     </div>
   )
 }

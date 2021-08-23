@@ -2,6 +2,7 @@ import React from 'react'
 import './Wallet.css'
 import VisibilityIcon from '@material-ui/icons/Visibility'
 import { Button, IconButton } from '@material-ui/core'
+import TransactionForm from './TransactionForm/TransactionForm'
 
 function Wallet({ myWalletAddress, balance }) {
   return (
@@ -20,9 +21,7 @@ function Wallet({ myWalletAddress, balance }) {
       <div className="wallet__transactions">
         <h3>History</h3>
       </div>
-      <Button className="wallet__button" variant="contained" color="primary">
-        Make a Transaction
-      </Button>
+      <TransactionForm />
     </div>
   )
 }
