@@ -3,7 +3,6 @@ import Block from './components/Block'
 import './Blocks.css'
 
 function Blocks({ blockchain }) {
-  console.log(blockchain)
   return (
     <div className="blocks">
       <h2>Mined Blocks</h2>

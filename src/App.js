@@ -1,4 +1,8 @@
+import { useEffect } from 'react'
 import './App.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectUser, login } from './features/userSlice'
+import { selectBlockchain, create } from './features/blockchainSlice'
 // Components
 import Nav from './components/Nav/Nav'
 import Wallet from './components/Wallet/Wallet'
@@ -10,14 +14,14 @@ const EC = require('elliptic').ec
 const ec = new EC('secp256k1')
 
 function App() {
+  // creating a Blockchain
+  let JuliettCoin = new Blockchain()
+
   // getting the key for wallet address
   const myKey = ec.keyFromPrivate(
     '90791a587f874cc9bdee0350feb4bda73199c431f4b635b6e1b6f0dd4cfea290',
   )
   const myWalletAddress = myKey.getPublic('hex')
-
-  // creating a Blockchain
-  let JuliettCoin = new Blockchain()
 
   // test ********************************************************************************************
   const tx1 = new Transaction(myWalletAddress, 'public key goes here', 18)
@@ -56,7 +60,11 @@ function App() {
     <div className="app">
       <Nav />
       <div className="app__container">
-        <Wallet balance={Balance} myWalletAddress={myWalletAddress} />
+        <Wallet
+          blockchain={JuliettCoin}
+          balance={Balance}
+          myWalletAddress={myWalletAddress}
+        />
         <Blocks blockchain={JuliettCoin.chain} />
       </div>
     </div>

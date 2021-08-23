@@ -4,7 +4,7 @@ import VisibilityIcon from '@material-ui/icons/Visibility'
 import { Button, IconButton } from '@material-ui/core'
 import TransactionForm from './TransactionForm/TransactionForm'
 
-function Wallet({ myWalletAddress, balance }) {
+function Wallet({ myWalletAddress, balance, blockchain }) {
   return (
     <div className="wallet">
       <h2>Wallet Address</h2>
@@ -21,7 +21,7 @@ function Wallet({ myWalletAddress, balance }) {
       <div className="wallet__transactions">
         <h3>History</h3>
       </div>
-      <TransactionForm />
+      <TransactionForm blockchain={blockchain} />
     </div>
   )
 }
