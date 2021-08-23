@@ -6,12 +6,16 @@
   margin-left: 50px;
   padding: 10px;
 }
-
-.block > p {
-  word-wrap: break-word;
+.block__container {
+  height: 70%;
 }
 
-.block > p > span {
+.block__container > p {
+  word-wrap: break-word;
+  margin-top: 10px;
+}
+
+.block__container > p > span {
   font-weight: bold;
   margin-right: 20px;
 }
@@ -21,4 +25,26 @@
   width: 80% !important;
   margin-left: 10% !important;
   margin-right: 10% !important;
+}
+
+.dialog__header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.dialog__header > p > span {
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+.dialog__header > p {
+  font-weight: 300;
+}
+
+.block__genesis {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #3f51b5;
 }

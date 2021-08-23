@@ -34,7 +34,25 @@ function DialogWindow({ transactions }) {
         <DialogTitle id="form-dialog-title">Transactions</DialogTitle>
         <DialogContent>
           {Array.from(transactions).map((transaction, id) => {
-            return <h3 key={id}>{transaction.toAddress}</h3>
+            return (
+              <h3 className="dialog__header" key={id}>
+                <p>
+                  <span>from</span>
+                  {transaction.fromAddress !== null && (
+                    <p>{transaction.fromAddress}</p>
+                  )}
+                  {transaction.fromAddress === null && <p>Mining Reward</p>}
+                </p>
+                <p>
+                  <span>to</span>
+                  <p> {transaction.toAddress}</p>
+                </p>
+                <p>
+                  <span>Amount</span>
+                  <p> {transaction.amount} JTC</p>
+                </p>
+              </h3>
+            )
           })}
         </DialogContent>
         <DialogActions>

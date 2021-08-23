@@ -1,16 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Wallet.css'
 import VisibilityIcon from '@material-ui/icons/Visibility'
-import { Button, IconButton } from '@material-ui/core'
+import { IconButton } from '@material-ui/core'
 import TransactionForm from './TransactionForm/TransactionForm'
 
 function Wallet({ myWalletAddress, balance, blockchain }) {
+  const [visible, setVisible] = useState(false)
+  const visibleAddress = () => {
+    setVisible(true)
+  }
   return (
     <div className="wallet">
       <h2>Wallet Address</h2>
       <div className="wallet__addressContainer">
         <p className="wallet__address">{myWalletAddress}</p>
-        <IconButton>
+        <IconButton onClick={visibleAddress}>
           <VisibilityIcon />
         </IconButton>
       </div>

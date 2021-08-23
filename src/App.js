@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
 import './App.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { selectUser, login } from './features/userSlice'
-import { selectBlockchain, create } from './features/blockchainSlice'
+
 // Components
 import Nav from './components/Nav/Nav'
 import Wallet from './components/Wallet/Wallet'
