@@ -1,0 +1,13 @@
+.history__header {
+  display: flex;
+}
+
+.history__outcoming {
+  color: red;
+  width: 60px;
+}
+
+.history__incoming {
+  color: green;
+  width: 60px;
+}

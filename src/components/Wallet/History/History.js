@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './History.css'
 
 function History({ blockchain, myWalletAddress }) {
   const [result, setResult] = useState([])
@@ -32,11 +33,19 @@ function History({ blockchain, myWalletAddress }) {
     // setting for displaying
     for (let i = 0; i <= rows.length - 1; i++) {
       if (rows[i].toAddress === myWalletAddress) {
-        let row = ['incoming', rows[i].amount, rows[i].fromAddress]
+        let row = {
+          flow: 'incoming',
+          amount: rows[i].amount,
+          address: rows[i].fromAddress,
+        }
         resultArray.push(row)
       }
       if (rows[i].fromAddress === myWalletAddress) {
-        let row = ['outcoming', rows[i].amount, rows[i].toAddress]
+        let row = {
+          flow: 'outcoming',
+          amount: rows[i].amount,
+          address: rows[i].toAddress,
+        }
         resultArray.push(row)
       }
     }
@@ -49,7 +58,19 @@ function History({ blockchain, myWalletAddress }) {
   return (
     <div className="history">
       {result.map((row, id) => {
-        return <h6 key={id}>{row[0]}</h6>
+        return (
+          <h6 className="history__header" key={id}>
+            {row.flow === 'outcoming' && (
+              <p className="history__outcoming">-{row.amount} JTC</p>
+            )}
+            {row.flow === 'incoming' && (
+              <p className="history__incoming">+{row.amount} JTC</p>
+            )}
+            <p></p>
+            {row.address === null && <p>Mining Reward</p>}
+            <p> {row.address}</p>
+          </h6>
+        )
       })}
     </div>
   )

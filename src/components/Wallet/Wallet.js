@@ -16,11 +16,11 @@ function Wallet({ myWalletAddress, balance, blockchain }) {
         <h3>Balance</h3>
         <div className="wallet__balanceContainer">{balance} JTC</div>
       </div>
+      <TransactionForm blockchain={blockchain} />
       <div className="wallet__transactions">
         <h3>History</h3>
         <History myWalletAddress={myWalletAddress} blockchain={blockchain} />
       </div>
-      <TransactionForm blockchain={blockchain} />
     </div>
   )
 }
