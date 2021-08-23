@@ -1,7 +1,12 @@
 import './App.css'
+import Nav from './components/Nav/Nav'
 
 function App() {
-  return <div className="app">Hello, Let's build a blockchain 🚀</div>
+  return (
+    <div className="app">
+      <Nav />
+    </div>
+  )
 }
 
 export default App
