@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Wallet.css'
-import VisibilityIcon from '@material-ui/icons/Visibility'
-import { IconButton } from '@material-ui/core'
 import TransactionForm from './TransactionForm/TransactionForm'
 import ShowAddress from './ShowAddress/ShowAddress'
+import History from './History/History'
 
 function Wallet({ myWalletAddress, balance, blockchain }) {
   return (
@@ -19,6 +18,7 @@ function Wallet({ myWalletAddress, balance, blockchain }) {
       </div>
       <div className="wallet__transactions">
         <h3>History</h3>
+        <History myWalletAddress={myWalletAddress} blockchain={blockchain} />
       </div>
       <TransactionForm blockchain={blockchain} />
     </div>

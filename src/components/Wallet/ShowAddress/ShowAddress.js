@@ -28,8 +28,8 @@ function ShowAddress({ myWalletAddress }) {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">{myWalletAddress}</DialogTitle>
-        <DialogContent></DialogContent>
+        <DialogTitle id="form-dialog-title">Your Public Key</DialogTitle>
+        <DialogContent>{myWalletAddress}</DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             Cancel

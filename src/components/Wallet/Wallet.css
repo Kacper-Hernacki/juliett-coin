@@ -35,6 +35,10 @@
   margin-top: 20px;
 }
 
+.wallet__transactions > h3 {
+  margin-bottom: 10px;
+}
+
 .wallet__button {
   margin-top: 30px !important;
   width: 80% !important;
