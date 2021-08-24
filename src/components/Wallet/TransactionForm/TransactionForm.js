@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+// Material-UI
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Dialog from '@material-ui/core/Dialog'
@@ -6,15 +7,21 @@ import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
-import { useSelector } from 'react-redux'
-import { selectUser } from '../../../features/userSlice'
+// REDUX
+import { useSelector, useDispatch } from 'react-redux'
+import { selectUser, login } from '../../../features/userSlice'
+// blockchain structure
 import { Transaction } from '../../../blockchain/blockchain'
+
 // keys
 const EC = require('elliptic').ec
 const ec = new EC('secp256k1')
 
 function TransactionForm({ blockchain }) {
   const user = useSelector(selectUser)
+  const dispatch = useDispatch()
+
+  console.log(user)
   const [open, setOpen] = useState(false)
   const [address, setAddress] = useState('')
   const [amount, setAmount] = useState(0)
@@ -44,12 +51,17 @@ function TransactionForm({ blockchain }) {
       blockchain.getBalanceOfAddress(myWalletAddress),
     )
     console.log(JSON.stringify(blockchain, null, 4))
+    localStorage.setItem('blockchain1', JSON.stringify(blockchain))
+    dispatch(
+      login({
+        transaction: true,
+      }),
+    )
     setOpen(false)
   }
 
   return (
     <div>
-      {' '}
       <Button
         className="wallet__button"
         variant="contained"

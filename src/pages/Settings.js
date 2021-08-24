@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme) => ({
 
 function Settings() {
   const [open, setOpen] = useState(false)
-  const [difficulty, setDifficulty] = useState(0)
-  const [minigReward, setMiningReward] = useState(0)
+  const [difficulty, setDifficulty] = useState(2)
+  const [minigReward, setMiningReward] = useState(100)
   const classes = useStyles()
 
   const handleClickOpen = () => {

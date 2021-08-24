@@ -1,10 +1,12 @@
 import { useEffect } from 'react'
 import './App.css'
-
+import { selectUser, login } from './features/userSlice'
+import { useDispatch, useSelector } from 'react-redux'
 // Components
 import Nav from './components/Nav/Nav'
 import Wallet from './components/Wallet/Wallet'
 import Blocks from './components/Blocks/Blocks'
+import BlocksUpdated from './components/Blocks/BlocksUpdated'
 // blockchain structure
 import { Blockchain, Transaction } from './blockchain/blockchain'
 // keys
@@ -12,6 +14,9 @@ const EC = require('elliptic').ec
 const ec = new EC('secp256k1')
 
 function App() {
+  const user = useSelector(selectUser)
+  const dispatch = useDispatch()
+
   // creating a Blockchain
   let JuliettCoin = new Blockchain()
 
@@ -52,7 +57,7 @@ function App() {
   const Balance = JuliettCoin.getBalanceOfAddress(myWalletAddress)
 
   // checking the chain
-  console.log(JSON.stringify(JuliettCoin, null, 4))
+  // console.log(JSON.stringify(JuliettCoin, null, 4))
 
   return (
     <div className="app">
@@ -63,7 +68,13 @@ function App() {
           balance={Balance}
           myWalletAddress={myWalletAddress}
         />
-        <Blocks blockchain={JuliettCoin.chain} />
+        {user?.length === 0 && <Blocks blockchain={JuliettCoin.chain} />}
+
+        {user?.length !== 0 && (
+          <BlocksUpdated
+            blockchain={JSON.parse(localStorage.getItem('blockchain1'))}
+          />
+        )}
       </div>
     </div>
   )
